@@ -2,13 +2,22 @@ OxyPlot.2DGraphLib.MonoTouch
 ============================
 
 A MonoTouch port of the OxyPlot 2D Graph C# Library.
+
+Requirements:
+
+- Xcode 4.5.2
+- Mono 2.10.9
+- Xamarin MonoTouch Framework 6.0.8
+- Monodevelop 3.1.1
+
+
+Original Project repository : http://oxyplot.codeplex.com/
+
 First commit:
 - added render context for iOS 6.0
 - added support for iOS gestures (Pan &amp; Pinch-Zoom).
 - iPhone 3GS, 4, 5 & iPad screen layout support
 
-
-Original Project repository : http://oxyplot.codeplex.com/
 
 This code is released under the MIT Licence.
 
