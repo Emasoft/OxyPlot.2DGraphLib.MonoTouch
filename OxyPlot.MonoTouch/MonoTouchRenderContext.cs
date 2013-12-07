@@ -221,6 +221,11 @@ namespace OxyPlot.MonoTouch
             gctx.DrawPath (CGPathDrawingMode.Stroke);
 		}
 
+        public static double DegreesToRadians(double angle)
+        {
+          return Math.PI * angle / 180.0;
+        }
+
 		public override void DrawText (ScreenPoint p, string text, OxyColor fill, string fontFamily, double fontSize, double fontWeight, double rotate, HorizontalTextAlign halign, VerticalTextAlign valign, OxySize? maxSize)
 		{
 
@@ -266,6 +271,13 @@ namespace OxyPlot.MonoTouch
 
 			float y = (float)(p.Y);
 			float x = (float)(p.X);
+
+            // Rotate the text here.
+            var m = CGAffineTransform.MakeTranslation(-x,-y);
+            m.Multiply( CGAffineTransform.MakeRotation((float)DegreesToRadians(rotate)));
+            m.Multiply( CGAffineTransform.MakeTranslation(x,y));
+            
+            gctx.ConcatCTM( m );
 
 			switch(halign)
 			{
